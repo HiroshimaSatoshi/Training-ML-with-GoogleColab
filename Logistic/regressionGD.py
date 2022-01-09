@@ -52,7 +52,7 @@ class LogisticRegressionGD(object):
             net_input = self.net_input(X)
             output = self.activation(net_input)
             errors = y - output
-            self.w_[1:] += self.eta * X.T.Dot(errors)
+            self.w_[1:] += self.eta * X.T.dot(errors)
             self.w_[0] += self.eta * errors.sum()
             # 誤差平方和のコストではなくロジスティック回帰のコストを計算することに注意
             cost = -y.dot(np.log(output)) - ((1 - y).dot(np.log(1 - output)))
